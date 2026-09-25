@@ -1,0 +1,85 @@
+[
+  {
+    "label": "Na 160, 70 kg, homem jovem: 6,0 L",
+    "input": {
+      "na": 160,
+      "peso": 70,
+      "grupo": "0.6"
+    },
+    "expected": {
+      "raw": {
+        "fwd": 6,
+        "tbw": 42
+      },
+      "level": "high"
+    },
+    "originalInput": {
+      "na": 160,
+      "peso": 70,
+      "grupo": "0.6"
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Na 150, 60 kg, mulher jovem: 2,1 L",
+    "input": {
+      "na": 150,
+      "peso": 60,
+      "grupo": "0.5"
+    },
+    "expected": {
+      "raw": {
+        "fwd": 2.143,
+        "tbw": 30
+      },
+      "level": "mid"
+    },
+    "originalInput": {
+      "na": 150,
+      "peso": 60,
+      "grupo": "0.5"
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Na 155, 50 kg, idosa: 2,4 L",
+    "input": {
+      "na": 155,
+      "peso": 50,
+      "grupo": "0.45"
+    },
+    "expected": {
+      "raw": {
+        "fwd": 2.411,
+        "tbw": 22.5
+      },
+      "level": "mid"
+    },
+    "originalInput": {
+      "na": 155,
+      "peso": 50,
+      "grupo": "0.45"
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Na 140: sem déficit",
+    "input": {
+      "na": 140,
+      "peso": 70,
+      "grupo": "0.6"
+    },
+    "expected": {
+      "raw": {
+        "fwd": 0
+      },
+      "level": "low"
+    },
+    "originalInput": {
+      "na": 140,
+      "peso": 70,
+      "grupo": "0.6"
+    },
+    "expandedZeroOptions": []
+  }
+]

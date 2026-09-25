@@ -1,0 +1,183 @@
+{
+  "tool": {
+    "id": "deficit-de-agua-livre",
+    "title": "Déficit de água livre",
+    "short": "Reposição de água na hipernatremia",
+    "desc": "Calcule o déficit de água livre na hipernatremia pela água corporal total estimada (sexo e idade) e veja o limite seguro de correção em 24 horas.",
+    "lead": "Estima o volume de água livre necessário para trazer o sódio de volta a 140 mEq/L na hipernatremia, a partir da água corporal total.",
+    "spec": [
+      "medicina-intensiva",
+      "medicina-de-emergencia",
+      "nefrologia",
+      "geriatria",
+      "clinica-medica"
+    ],
+    "fields": [
+      [
+        "na",
+        "Sódio",
+        "num",
+        {
+          "min": 120,
+          "max": 200,
+          "unit": "mEq/L",
+          "ph": "155"
+        }
+      ],
+      [
+        "peso",
+        "Peso",
+        "num",
+        {
+          "min": 2,
+          "max": 300,
+          "step": 0.1,
+          "unit": "kg",
+          "ph": "70"
+        }
+      ],
+      [
+        "grupo",
+        "Água corporal total",
+        "radio",
+        {
+          "opts": {
+            "0.6": "Homem &lt; 65 anos ou criança",
+            "0.5": "Mulher &lt; 65 anos ou homem ≥ 65",
+            "0.45": "Mulher ≥ 65 anos"
+          }
+        }
+      ]
+    ],
+    "formula": "<p><strong>Água corporal total</strong> = peso × fração (0,6 em homens &lt; 65 anos e crianças; 0,5 em mulheres &lt; 65 e homens ≥ 65; 0,45 em mulheres ≥ 65).</p><p><strong>Déficit de água livre</strong> = água corporal total × (Na ÷ 140 − 1).</p>",
+    "table": [
+      [
+        "Situação",
+        "Velocidade de correção"
+      ],
+      [
+        "Hipernatremia crônica (&gt; 48 h ou duração desconhecida)",
+        "Queda de até 10 mEq/L em 24 h (cerca de 0,5 mEq/L/h)"
+      ],
+      [
+        "Hipernatremia aguda (horas)",
+        "Pode ser corrigida mais rápido, cerca de 1 mEq/L/h"
+      ]
+    ],
+    "tips": [
+      "O déficit calculado não inclui as perdas em curso: some a diurese e as perdas insensíveis (cerca de 800 a 1.000 mL/dia no adulto) ao plano de reposição.",
+      "Prefira água pela via enteral quando possível; por via venosa, use soro glicosado 5% (ou NaCl 0,45% se houver também déficit de volume) e monitore a glicemia.",
+      "Na hipernatremia com choque, corrija primeiro a volemia com cristaloide isotônico e só depois a água livre.",
+      "Dose o sódio a cada 4 a 6 horas no início: a fórmula é uma estimativa e a resposta real varia com a diurese.",
+      "Para saber quanto cada litro de uma solução muda o sódio, use a fórmula de Adrogué-Madias."
+    ],
+    "sources": [
+      [
+        "Adrogué HJ, Madias NE. Hypernatremia. N Engl J Med, 2000.",
+        "https://doi.org/10.1056/NEJM200005183422006"
+      ]
+    ],
+    "cases": [
+      [
+        "Na 160, 70 kg, homem jovem: 6,0 L",
+        {
+          "na": 160,
+          "peso": 70,
+          "grupo": "0.6"
+        },
+        {
+          "raw": {
+            "fwd": 6,
+            "tbw": 42
+          },
+          "level": "high"
+        }
+      ],
+      [
+        "Na 150, 60 kg, mulher jovem: 2,1 L",
+        {
+          "na": 150,
+          "peso": 60,
+          "grupo": "0.5"
+        },
+        {
+          "raw": {
+            "fwd": 2.143,
+            "tbw": 30
+          },
+          "level": "mid"
+        }
+      ],
+      [
+        "Na 155, 50 kg, idosa: 2,4 L",
+        {
+          "na": 155,
+          "peso": 50,
+          "grupo": "0.45"
+        },
+        {
+          "raw": {
+            "fwd": 2.411,
+            "tbw": 22.5
+          },
+          "level": "mid"
+        }
+      ],
+      [
+        "Na 140: sem déficit",
+        {
+          "na": 140,
+          "peso": 70,
+          "grupo": "0.6"
+        },
+        {
+          "raw": {
+            "fwd": 0
+          },
+          "level": "low"
+        }
+      ]
+    ],
+    "batch": "urgencia",
+    "kind": "Calculadora",
+    "config": null,
+    "areaId": "urgencia",
+    "clinicalReview": "pending",
+    "sourceReview": "pending",
+    "sourceFile": "app/content/ferramentas/urgencia.php",
+    "arithmeticTest": {
+      "status": "passed",
+      "testedAt": "2026-09-25",
+      "total": 4,
+      "passed": 4,
+      "failures": []
+    },
+    "independentArithmeticTest": {
+      "status": "not-tested",
+      "testedAt": null,
+      "total": 0,
+      "passed": 0,
+      "cases": []
+    }
+  },
+  "review": {
+    "id": "deficit-de-agua-livre",
+    "status": "restricted",
+    "reason": "O valor principal em litros é apresentado como água a repor; a entrada aceita crianças e não coleta duração, volemia nem perdas. Estimativa não é prescrição de reposição. Suspender execução assistencial até separar estimativa, população e protocolo.",
+    "sourceUrl": "https://www.endocrinology.org/media/scplexuf/guidelines-for-the-inpatient-management-of-cranial-diabetes-insipidus.pdf",
+    "sourceTitle": "Society for Endocrinology — Inpatient management of cranial diabetes insipidus",
+    "sourceDate": "2018",
+    "publisherRegion": "Reino Unido / Society for Endocrinology",
+    "checkedAt": "2026-09-25",
+    "clinicalValidation": "not-performed",
+    "reviewScope": "triagem por risco e finalidade da saída principal; sem validação clínica",
+    "suppressLegacyFormula": true,
+    "formulaOverride": "Déficit estimado = água corporal total × (Na/140 − 1). A estimativa não especifica solução, velocidade, via, perdas atuais ou monitorização."
+  },
+  "sourceFile": {
+    "path": "app/content/ferramentas/urgencia.php",
+    "sha256": "b24f3a77383430c3f3463168e78e88341034b3108bd712f3613ae32672dc281c",
+    "bytes": 121059
+  },
+  "clinicalValidation": "not-performed"
+}
