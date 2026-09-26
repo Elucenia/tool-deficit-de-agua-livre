@@ -1,7 +1,7 @@
 {
   "name": "@elucenia/tool-deficit-de-agua-livre",
   "version": "0.1.0",
-  "description": "Déficit de água livre · Elucenia: reprodução técnica de fórmula ou escore clínico, sem dependências, para navegador e Node.js.",
+  "description": "Déficit de água livre · ELUCENIA: reprodução técnica de fórmula ou escore clínico, sem dependências, para navegador e Node.js.",
   "keywords": [
     "elucenia",
     "medical-calculator",
