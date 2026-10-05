@@ -1,0 +1,86 @@
+{
+  "schema": "elucenia-publication-base-reference",
+  "checkedAt": "2026-10-05T15:38:24.003Z",
+  "repo": "Elucenia/tool-deficit-de-agua-livre",
+  "branch": "main",
+  "commit": "027cbbd9640391265a6e13462bc6f4f45e896a3c",
+  "treeSha": "cb8294fdb5d766e43bc3d7c4238a3deef1608c5a",
+  "status": "protected-hashes-unchanged",
+  "protectedFiles": [
+    {
+      "file": "LICENSE",
+      "historicalGitBlobSha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "currentGitBlobSha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "candidateGitBlobSha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "candidateSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "same": true
+    },
+    {
+      "file": "NOTICE",
+      "historicalGitBlobSha1": "48ce17ea7103ef9226344f8ef429a4e43cdd9a20",
+      "currentGitBlobSha1": "48ce17ea7103ef9226344f8ef429a4e43cdd9a20",
+      "candidateGitBlobSha1": "48ce17ea7103ef9226344f8ef429a4e43cdd9a20",
+      "candidateSha256": "be22065690809fb938159d352759ec1346f0d2d1cc2f09d836f0c9e6facedaef",
+      "same": true
+    },
+    {
+      "file": "AUTHORSHIP.md",
+      "historicalGitBlobSha1": "377b1d6980c8efc6092793692f20f4018a293d8b",
+      "currentGitBlobSha1": "377b1d6980c8efc6092793692f20f4018a293d8b",
+      "candidateGitBlobSha1": "377b1d6980c8efc6092793692f20f4018a293d8b",
+      "candidateSha256": "4c9e16dc9b62008cfbc086b684bf764017d09bb1568ed0788f81cf12d2112005",
+      "same": true
+    },
+    {
+      "file": "CITATION.cff",
+      "historicalGitBlobSha1": "ed115961f6c103de0df6d285696099729d9ce225",
+      "currentGitBlobSha1": "ed115961f6c103de0df6d285696099729d9ce225",
+      "candidateGitBlobSha1": "ed115961f6c103de0df6d285696099729d9ce225",
+      "candidateSha256": "af49769c7b138c1b6eb2eaa01515710d417cd3148f1ac6d27dfaeaf01bfba748",
+      "same": true
+    },
+    {
+      "file": "SECURITY.md",
+      "historicalGitBlobSha1": "44eafb996937916cbe53e24fa9c5208fe03d5767",
+      "currentGitBlobSha1": "44eafb996937916cbe53e24fa9c5208fe03d5767",
+      "candidateGitBlobSha1": "44eafb996937916cbe53e24fa9c5208fe03d5767",
+      "candidateSha256": "3c20d46e436116be0c673f0260b24bbc2193fafbd15fb4659bf0e545b452487e",
+      "same": true
+    },
+    {
+      "file": "CONTRIBUTING.md",
+      "historicalGitBlobSha1": "c3101ecb48d82f778a7ea9caa311e8fbce53d760",
+      "currentGitBlobSha1": "c3101ecb48d82f778a7ea9caa311e8fbce53d760",
+      "candidateGitBlobSha1": "c3101ecb48d82f778a7ea9caa311e8fbce53d760",
+      "candidateSha256": "c35c874b25e0821b78534f446fffdda97020423efe89d0950324e4306d0578ba",
+      "same": true
+    },
+    {
+      "file": ".github/workflows/ci.yml",
+      "historicalGitBlobSha1": "7d3f2f34aa2e948d30695d82d64361467d9e6485",
+      "currentGitBlobSha1": "7d3f2f34aa2e948d30695d82d64361467d9e6485",
+      "candidateGitBlobSha1": "7d3f2f34aa2e948d30695d82d64361467d9e6485",
+      "candidateSha256": "bdbefea1fc6b1d8847725c698f62920917bc8d6504bfe8ed622ed2d5aaf7f160",
+      "same": true
+    },
+    {
+      "file": ".gitattributes",
+      "historicalGitBlobSha1": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+      "currentGitBlobSha1": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+      "candidateGitBlobSha1": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+      "candidateSha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+      "same": true
+    },
+    {
+      "file": ".gitignore",
+      "historicalGitBlobSha1": "e375bd25cf1a574310ac4c7af0299884556e81e1",
+      "currentGitBlobSha1": "e375bd25cf1a574310ac4c7af0299884556e81e1",
+      "candidateGitBlobSha1": "e375bd25cf1a574310ac4c7af0299884556e81e1",
+      "candidateSha256": "763fb702ccbb9bfd8549ca3d0844c731b22aca4e665a2b61d1bb764b64f734d8",
+      "same": true
+    }
+  ],
+  "sourceReceiptSha256": "afde2d1f95a20293350a160c2edfbbb80c4c8a740fbb8c2ad29790c83e17a082",
+  "newProtectedFilesAreFirstAddition": false,
+  "publicationPerformed": false
+}

@@ -2,9 +2,10 @@
   "tool": {
     "id": "deficit-de-agua-livre",
     "title": "Déficit de água livre",
-    "short": "Reposição de água na hipernatremia",
-    "desc": "Calcule o déficit de água livre na hipernatremia pela água corporal total estimada (sexo e idade) e veja o limite seguro de correção em 24 horas.",
-    "lead": "Estima o volume de água livre necessário para trazer o sódio de volta a 140 mEq/L na hipernatremia, a partir da água corporal total.",
+    "short": "Déficit teórico de água em adultos, com referência de sódio 140 mmol/L",
+    "desc": "Calcula um déficit teórico com uma fração de água corporal explicitamente selecionada. O resultado não define uma reposição, uma velocidade ou uma meta individual de correção.",
+    "lead": "Calcula um déficit teórico com uma fração de água corporal explicitamente selecionada. O resultado não define uma reposição, uma velocidade ou uma meta individual de correção.",
+    "kind": "Calculadora",
     "spec": [
       "medicina-intensiva",
       "medicina-de-emergencia",
@@ -29,7 +30,7 @@
         "Peso",
         "num",
         {
-          "min": 2,
+          "min": 30,
           "max": 300,
           "step": 0.1,
           "unit": "kg",
@@ -38,40 +39,33 @@
       ],
       [
         "grupo",
-        "Água corporal total",
-        "radio",
+        "Fração estimada de água corporal total",
+        "sel",
         {
           "opts": {
-            "0.6": "Homem &lt; 65 anos ou criança",
-            "0.5": "Mulher &lt; 65 anos ou homem ≥ 65",
-            "0.45": "Mulher ≥ 65 anos"
+            "0.6": "0,60",
+            "0.5": "0,50",
+            "0.45": "0,45"
           }
+        }
+      ],
+      [
+        "idade",
+        "Idade",
+        "num",
+        {
+          "min": 18,
+          "max": 110,
+          "unit": "anos"
         }
       ]
     ],
-    "formula": "<p><strong>Água corporal total</strong> = peso × fração (0,6 em homens &lt; 65 anos e crianças; 0,5 em mulheres &lt; 65 e homens ≥ 65; 0,45 em mulheres ≥ 65).</p><p><strong>Déficit de água livre</strong> = água corporal total × (Na ÷ 140 − 1).</p>",
-    "table": [
-      [
-        "Situação",
-        "Velocidade de correção"
-      ],
-      [
-        "Hipernatremia crônica (&gt; 48 h ou duração desconhecida)",
-        "Queda de até 10 mEq/L em 24 h (cerca de 0,5 mEq/L/h)"
-      ],
-      [
-        "Hipernatremia aguda (horas)",
-        "Pode ser corrigida mais rápido, cerca de 1 mEq/L/h"
-      ]
-    ],
-    "tips": [
-      "O déficit calculado não inclui as perdas em curso: some a diurese e as perdas insensíveis (cerca de 800 a 1.000 mL/dia no adulto) ao plano de reposição.",
-      "Prefira água pela via enteral quando possível; por via venosa, use soro glicosado 5% (ou NaCl 0,45% se houver também déficit de volume) e monitore a glicemia.",
-      "Na hipernatremia com choque, corrija primeiro a volemia com cristaloide isotônico e só depois a água livre.",
-      "Dose o sódio a cada 4 a 6 horas no início: a fórmula é uma estimativa e a resposta real varia com a diurese.",
-      "Para saber quanto cada litro de uma solução muda o sódio, use a fórmula de Adrogué-Madias."
-    ],
+    "formula": "<p>Déficit estimado = água corporal total × (Na/140 − 1); água corporal total = peso × fração informada.</p>",
     "sources": [
+      [
+        "University of Pittsburgh · Water replacement · exemplo e expressão do déficit",
+        "https://meded.dom.pitt.edu/wp-content/uploads/2018/12/UIM18_Tandukar_FINAL.pdf"
+      ],
       [
         "Adrogué HJ, Madias NE. Hypernatremia. N Engl J Med, 2000.",
         "https://doi.org/10.1056/NEJM200005183422006"
@@ -79,96 +73,344 @@
     ],
     "cases": [
       [
-        "Na 160, 70 kg, homem jovem: 6,0 L",
-        {
-          "na": 160,
-          "peso": 70,
-          "grupo": "0.6"
-        },
-        {
-          "raw": {
-            "fwd": 6,
-            "tbw": 42
-          },
-          "level": "high"
-        }
-      ],
-      [
-        "Na 150, 60 kg, mulher jovem: 2,1 L",
-        {
-          "na": 150,
-          "peso": 60,
-          "grupo": "0.5"
-        },
-        {
-          "raw": {
-            "fwd": 2.143,
-            "tbw": 30
-          },
-          "level": "mid"
-        }
-      ],
-      [
-        "Na 155, 50 kg, idosa: 2,4 L",
+        "Vetor sintético principal de referência",
         {
           "na": 155,
-          "peso": 50,
-          "grupo": "0.45"
+          "peso": 70,
+          "grupo": "0.6",
+          "idade": 50
         },
         {
           "raw": {
-            "fwd": 2.411,
-            "tbw": 22.5
+            "fwd": 4.5,
+            "tbw": 42
           },
-          "level": "mid"
+          "main": "4,50",
+          "tol": 1e-9
         }
       ],
       [
-        "Na 140: sem déficit",
+        "Exemplo publicado: Na165/peso70/fração0,6",
+        {
+          "na": 165,
+          "peso": 70,
+          "grupo": "0.6",
+          "idade": 50
+        },
+        {
+          "raw": {
+            "fwd": 7.5,
+            "tbw": 42
+          },
+          "main": "7,50",
+          "tol": 1e-9
+        }
+      ],
+      [
+        "Na140: déficit zero",
         {
           "na": 140,
           "peso": 70,
-          "grupo": "0.6"
+          "grupo": "0.6",
+          "idade": 50
         },
         {
           "raw": {
-            "fwd": 0
+            "fwd": 0,
+            "tbw": 42
           },
-          "level": "low"
+          "main": "0,00"
+        }
+      ],
+      [
+        "Fração0,45/peso60/Na154",
+        {
+          "na": 154,
+          "peso": 60,
+          "grupo": "0.45",
+          "idade": 50
+        },
+        {
+          "raw": {
+            "fwd": 2.7,
+            "tbw": 27
+          },
+          "tol": 1e-9
         }
       ]
     ],
-    "kind": "Calculadora",
-    "config": null,
-    "clinicalReview": "pending",
     "arithmeticTest": {
       "status": "passed",
-      "testedAt": "2026-09-25",
+      "testedAt": "2026-10-03",
       "total": 4,
       "passed": 4,
-      "failures": []
+      "failures": [],
+      "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+      "scope": "Synthetic source-rule arithmetic checks. Independent clinical validation not performed."
     },
     "independentArithmeticTest": {
-      "status": "not-tested",
-      "testedAt": null,
-      "total": 0,
-      "passed": 0,
-      "cases": []
-    }
-  },
-  "review": {
-    "id": "deficit-de-agua-livre",
-    "status": "restricted",
-    "reason": "O valor principal em litros é apresentado como água a repor; a entrada aceita crianças e não coleta duração, volemia nem perdas. Estimativa não é prescrição de reposição. Suspender execução assistencial até separar estimativa, população e protocolo.",
-    "sourceUrl": "https://www.endocrinology.org/media/scplexuf/guidelines-for-the-inpatient-management-of-cranial-diabetes-insipidus.pdf",
-    "sourceTitle": "Society for Endocrinology — Inpatient management of cranial diabetes insipidus",
-    "sourceDate": "2018",
-    "publisherRegion": "Reino Unido / Society for Endocrinology",
-    "checkedAt": "2026-09-25",
+      "status": "passed",
+      "testedAt": "2026-10-03",
+      "total": 22,
+      "passed": 22,
+      "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+      "scope": "Independent expected values and source-rule boundary checks; not clinical approval.",
+      "sourceRowCount": 22,
+      "uniqueApiInputCount": 19,
+      "inputIdentity": {
+        "definition": "Distinct JSON input objects within each method after recursively sorting object keys; array order, numeric values and JSON value types preserved. Uses stored input/inputs before implicit default completion, numeric coercion or clinical feature interpretation. Identity across different methods is not collapsed. Repeated scenarios are retained and coverage status is unchanged.",
+        "audit": {
+          "file": "reports/review-20261003/independent-source-corpus-input-identity-audit-final25.json",
+          "sha256": "35d65e84c5608a5f572fce6837f0a8c101b2266f5d6eec32a3d60d2bb6b022ca"
+        },
+        "sourceRows": 22,
+        "uniqueApiInputs": 19,
+        "duplicateRows": 3,
+        "duplicates": [
+          {
+            "first": 6,
+            "repeat": 9,
+            "input": {
+              "na": null,
+              "peso": 70,
+              "grupo": "0.6",
+              "idade": 50
+            }
+          },
+          {
+            "first": 11,
+            "repeat": 14,
+            "input": {
+              "na": 155,
+              "peso": null,
+              "grupo": "0.6",
+              "idade": 50
+            }
+          },
+          {
+            "first": 18,
+            "repeat": 21,
+            "input": {
+              "na": 155,
+              "peso": 70,
+              "grupo": "0.6",
+              "idade": null
+            }
+          }
+        ],
+        "coverageStatusUnchanged": true
+      },
+      "publicCandidateBankOmitted": true
+    },
+    "limits": "Não é volume a prescrever. Não modela volemia, duração da alteração, perdas nem monitorização. Com Na < 140 esta expressão de déficit não é aplicável.",
+    "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+    "currentMethodSource": {
+      "title": "University of Pittsburgh · Water replacement · exemplo e expressão do déficit",
+      "url": "https://meded.dom.pitt.edu/wp-content/uploads/2018/12/UIM18_Tandukar_FINAL.pdf",
+      "version": "Adrogué–Madias 2000; estimativa estática em adultos",
+      "checkedAt": "2026-10-03",
+      "access": "institutional-author-publication"
+    },
+    "primaryVerification": {
+      "url": "https://meded.dom.pitt.edu/wp-content/uploads/2018/12/UIM18_Tandukar_FINAL.pdf",
+      "checked": "Publicação institucional da University of Pittsburgh: expressão do déficit de água e exemplo de 70 kg, Na 165 e resultado 7,5 L. Conferido também o resumo de Adrogué 2000 e a limitação por perdas em curso.",
+      "access": "institutional-author-publication"
+    },
     "clinicalValidation": "not-performed",
-    "reviewScope": "triagem por risco e finalidade da saída principal; sem validação clínica",
-    "suppressLegacyFormula": true,
-    "formulaOverride": "Déficit estimado = água corporal total × (Na/140 − 1). A estimativa não especifica solução, velocidade, via, perdas atuais ou monitorização."
+    "languageReview": "not-performed",
+    "reviewStatus": "needs-review",
+    "implementationStatus": "available",
+    "versionEvidence": {
+      "status": "explicit-implemented-variant-and-existing-source-proofs-recorded",
+      "checkedAt": "2026-10-04T17:52:09.841Z",
+      "declaredMethodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+      "implementedVariant": "Déficit estimado = água corporal total × (Na/140 − 1); água corporal total = peso × fração informada.",
+      "inputContract": {
+        "fields": [
+          {
+            "key": "na",
+            "label": "Sódio",
+            "type": "num",
+            "min": 120,
+            "max": 200,
+            "unit": "mEq/L",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "peso",
+            "label": "Peso",
+            "type": "num",
+            "min": 30,
+            "max": 300,
+            "unit": "kg",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "grupo",
+            "label": "Fração estimada de água corporal total",
+            "type": "sel",
+            "optional": false,
+            "options": {
+              "0.6": "0,60",
+              "0.5": "0,50",
+              "0.45": "0,45"
+            }
+          },
+          {
+            "key": "idade",
+            "label": "Idade",
+            "type": "num",
+            "min": 18,
+            "max": 110,
+            "unit": "anos",
+            "optional": false,
+            "options": null
+          }
+        ],
+        "hash": "8f00cf293edc9c9da580a76e4ecad69b8dc9505e855019f12dd17da6f345bf8f",
+        "hashInputDefinition": "SHA256 of UTF8 JSON.stringify({id:tool.id,fields:tool.fields,formula:tool.formula,config:tool.config||null}), preserving declared order/value types; not a hash of versionEvidence.inputContract.fields display projection."
+      },
+      "sourceEditions": [
+        {
+          "citation": "University of Pittsburgh · Water replacement · exemplo e expressão do déficit",
+          "url": "https://meded.dom.pitt.edu/wp-content/uploads/2018/12/UIM18_Tandukar_FINAL.pdf",
+          "class": "existing-source-record-transcribed",
+          "declaredCitationPreserved": true,
+          "sourceIdentityRecheckedInThisNormalization": false,
+          "publicationEditionConfirmationInThisNormalization": "not-performed",
+          "fullTextRetrievalInThisNormalization": false,
+          "formulaConformance": "not-assessed"
+        },
+        {
+          "citation": "Adrogué HJ, Madias NE. Hypernatremia. N Engl J Med, 2000.",
+          "url": "https://doi.org/10.1056/NEJM200005183422006",
+          "class": "existing-source-record-transcribed",
+          "declaredCitationPreserved": true,
+          "sourceIdentityRecheckedInThisNormalization": false,
+          "publicationEditionConfirmationInThisNormalization": "not-performed",
+          "fullTextRetrievalInThisNormalization": false,
+          "formulaConformance": "not-assessed"
+        }
+      ],
+      "existingSourceEvidence": {
+        "currentMethodSource": {
+          "title": "University of Pittsburgh · Water replacement · exemplo e expressão do déficit",
+          "url": "https://meded.dom.pitt.edu/wp-content/uploads/2018/12/UIM18_Tandukar_FINAL.pdf",
+          "version": "Adrogué–Madias 2000; estimativa estática em adultos",
+          "checkedAt": "2026-10-03",
+          "access": "institutional-author-publication"
+        },
+        "primaryVerification": {
+          "url": "https://meded.dom.pitt.edu/wp-content/uploads/2018/12/UIM18_Tandukar_FINAL.pdf",
+          "checked": "Publicação institucional da University of Pittsburgh: expressão do déficit de água e exemplo de 70 kg, Na 165 e resultado 7,5 L. Conferido também o resumo de Adrogué 2000 e a limitação por perdas em curso.",
+          "access": "institutional-author-publication"
+        }
+      },
+      "editionRecordingScope": "The methodVersion and all previously recorded source access/edition proofs are transcribed unchanged. This technical normalization makes no new bibliographic/full-text/source-formula confirmation; named existing read scopes remain in existingSourceEvidence. A missing standardized container did not mean the method edition was missing.",
+      "publicationEditionConfirmationReevaluated": false,
+      "fullFormulaConformanceReviewed": false,
+      "formulaConformance": "Not established by technical hashes or metadata normalization; retain existing bounded source arithmetic and clinical review separately.",
+      "independentArithmetic": {
+        "status": "passed",
+        "testedAt": "2026-10-03",
+        "total": 22,
+        "passed": 22,
+        "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+        "scope": "Independent expected values and source-rule boundary checks; not clinical approval.",
+        "sourceRowCount": 22,
+        "uniqueApiInputCount": 19,
+        "inputIdentity": {
+          "definition": "Distinct JSON input objects within each method after recursively sorting object keys; array order, numeric values and JSON value types preserved. Uses stored input/inputs before implicit default completion, numeric coercion or clinical feature interpretation. Identity across different methods is not collapsed. Repeated scenarios are retained and coverage status is unchanged.",
+          "audit": {
+            "file": "reports/review-20261003/independent-source-corpus-input-identity-audit-final25.json",
+            "sha256": "35d65e84c5608a5f572fce6837f0a8c101b2266f5d6eec32a3d60d2bb6b022ca"
+          },
+          "sourceRows": 22,
+          "uniqueApiInputs": 19,
+          "duplicateRows": 3,
+          "duplicates": [
+            {
+              "first": 6,
+              "repeat": 9,
+              "input": {
+                "na": null,
+                "peso": 70,
+                "grupo": "0.6",
+                "idade": 50
+              }
+            },
+            {
+              "first": 11,
+              "repeat": 14,
+              "input": {
+                "na": 155,
+                "peso": null,
+                "grupo": "0.6",
+                "idade": 50
+              }
+            },
+            {
+              "first": 18,
+              "repeat": 21,
+              "input": {
+                "na": 155,
+                "peso": 70,
+                "grupo": "0.6",
+                "idade": null
+              }
+            }
+          ],
+          "coverageStatusUnchanged": true
+        },
+        "publicCandidateBankOmitted": true
+      },
+      "clinicalApproval": "not-performed",
+      "translationApproval": "not-performed",
+      "releaseApproval": "not-performed",
+      "professionalLanguageApproval": "not-performed",
+      "sourceRightsApproval": "not-performed",
+      "implementationHash": "7d045452c9585422ee72e743e104ce837c32438398c7bb6ebb4d550d41114b5b",
+      "implementationHashScope": "Exact current calculator.js bytes, individually verified in three app mirrors. This is not a full dependency-closure hash.",
+      "technicalBindingHistory": [
+        {
+          "recordedAt": "2026-10-04T17:52:09.841Z",
+          "scope": "First standardized container; explicit existing methodVersion and source proof objects preserved.",
+          "priorStandardizedContainerPresent": false,
+          "priorImplementationVersion": null,
+          "explicitMethodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+          "sourceEvidenceSha256": "3caf021b0dfa0c5cfeafe4d35a3ce62fe4ad8aafcc04099283287c1d1ffd7e42",
+          "metadataAudit": {
+            "file": "reports/review-20261003/native-technical-bindings-audit-publication-final26.json",
+            "sha256": "e615fa3a42555f8fbeb4de8763893c3e981a73eae4c8c1994b33727e19ebd8c8"
+          }
+        }
+      ]
+    },
+    "implementationVersion": "deficit-de-agua-livre@native-2026-10-04+7d045452c958"
   },
-  "clinicalValidation": "not-performed"
+  "sourceToolSha256": "370db1ab1601d445a67ccd36003b9655c5d6f2f45c41f9c35ebc8651f50001ae",
+  "omittedFullReferenceBanks": [
+    {
+      "at": "independentArithmeticTest.cases",
+      "rows": 22,
+      "sha256": "0da2c03212a8541d5d7a01fa54471c76b74e50a6ece186caa87ff9397d82292d",
+      "reason": "Full independent reference bank omitted from standalone public candidate; original evidence references retained"
+    },
+    {
+      "at": "versionEvidence.independentArithmetic.cases",
+      "rows": 22,
+      "sha256": "0da2c03212a8541d5d7a01fa54471c76b74e50a6ece186caa87ff9397d82292d",
+      "reason": "Embedded complete independent bank omitted; edition, scope and evidence references retained"
+    }
+  ],
+  "currentSource": {
+    "file": "apps/website/private/tool-code/deficit-de-agua-livre/calculator.js",
+    "bytes": 503,
+    "sha256": "7d045452c9585422ee72e743e104ce837c32438398c7bb6ebb4d550d41114b5b"
+  },
+  "clinicalValidation": "not-performed",
+  "professionalLanguageReview": "not-performed",
+  "sourceRightsApproval": "not-performed"
 }

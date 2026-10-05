@@ -1,85 +1,168 @@
 [
   {
-    "label": "Na 160, 70 kg, homem jovem: 6,0 L",
-    "input": {
-      "na": 160,
+    "id": "deficit-de-agua-livre",
+    "kind": "native-source-reference",
+    "index": 0,
+    "name": "Vetor sintético principal de referência",
+    "originalInput": {
+      "na": 155,
       "peso": 70,
-      "grupo": "0.6"
+      "grupo": "0.6",
+      "idade": 50
     },
+    "input": {
+      "na": 155,
+      "peso": 70,
+      "grupo": "0.6",
+      "idade": 50
+    },
+    "amendments": [],
     "expected": {
       "raw": {
-        "fwd": 6,
+        "fwd": 4.5,
         "tbw": 42
       },
-      "level": "high"
+      "main": "4,50",
+      "tol": 1e-9
     },
+    "recordedResult": {
+      "main": [
+        "4,50",
+        "L"
+      ],
+      "label": "Déficit de água livre estimado",
+      "raw": {
+        "fwd": 4.500000000000003,
+        "tbw": 42
+      }
+    },
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
+  },
+  {
+    "id": "deficit-de-agua-livre",
+    "kind": "native-source-reference",
+    "index": 1,
+    "name": "Exemplo publicado: Na165/peso70/fração0,6",
     "originalInput": {
-      "na": 160,
+      "na": 165,
       "peso": 70,
-      "grupo": "0.6"
+      "grupo": "0.6",
+      "idade": 50
     },
-    "expandedZeroOptions": []
-  },
-  {
-    "label": "Na 150, 60 kg, mulher jovem: 2,1 L",
     "input": {
-      "na": 150,
-      "peso": 60,
-      "grupo": "0.5"
+      "na": 165,
+      "peso": 70,
+      "grupo": "0.6",
+      "idade": 50
     },
+    "amendments": [],
     "expected": {
       "raw": {
-        "fwd": 2.143,
-        "tbw": 30
+        "fwd": 7.5,
+        "tbw": 42
       },
-      "level": "mid"
+      "main": "7,50",
+      "tol": 1e-9
     },
-    "originalInput": {
-      "na": 150,
-      "peso": 60,
-      "grupo": "0.5"
-    },
-    "expandedZeroOptions": []
-  },
-  {
-    "label": "Na 155, 50 kg, idosa: 2,4 L",
-    "input": {
-      "na": 155,
-      "peso": 50,
-      "grupo": "0.45"
-    },
-    "expected": {
+    "recordedResult": {
+      "main": [
+        "7,50",
+        "L"
+      ],
+      "label": "Déficit de água livre estimado",
       "raw": {
-        "fwd": 2.411,
-        "tbw": 22.5
-      },
-      "level": "mid"
+        "fwd": 7.500000000000002,
+        "tbw": 42
+      }
     },
-    "originalInput": {
-      "na": 155,
-      "peso": 50,
-      "grupo": "0.45"
-    },
-    "expandedZeroOptions": []
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
   },
   {
-    "label": "Na 140: sem déficit",
+    "id": "deficit-de-agua-livre",
+    "kind": "native-source-reference",
+    "index": 2,
+    "name": "Na140: déficit zero",
+    "originalInput": {
+      "na": 140,
+      "peso": 70,
+      "grupo": "0.6",
+      "idade": 50
+    },
     "input": {
       "na": 140,
       "peso": 70,
-      "grupo": "0.6"
+      "grupo": "0.6",
+      "idade": 50
     },
+    "amendments": [],
     "expected": {
       "raw": {
-        "fwd": 0
+        "fwd": 0,
+        "tbw": 42
       },
-      "level": "low"
+      "main": "0,00"
     },
+    "recordedResult": {
+      "main": [
+        "0,00",
+        "L"
+      ],
+      "label": "Déficit de água livre estimado",
+      "raw": {
+        "fwd": 0,
+        "tbw": 42
+      }
+    },
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
+  },
+  {
+    "id": "deficit-de-agua-livre",
+    "kind": "native-source-reference",
+    "index": 3,
+    "name": "Fração0,45/peso60/Na154",
     "originalInput": {
-      "na": 140,
-      "peso": 70,
-      "grupo": "0.6"
+      "na": 154,
+      "peso": 60,
+      "grupo": "0.45",
+      "idade": 50
     },
-    "expandedZeroOptions": []
+    "input": {
+      "na": 154,
+      "peso": 60,
+      "grupo": "0.45",
+      "idade": 50
+    },
+    "amendments": [],
+    "expected": {
+      "raw": {
+        "fwd": 2.7,
+        "tbw": 27
+      },
+      "tol": 1e-9
+    },
+    "recordedResult": {
+      "main": [
+        "2,70",
+        "L"
+      ],
+      "label": "Déficit de água livre estimado",
+      "raw": {
+        "fwd": 2.7000000000000024,
+        "tbw": 27
+      }
+    },
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
   }
 ]

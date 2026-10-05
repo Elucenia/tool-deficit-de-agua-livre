@@ -1,0 +1,148 @@
+{
+  "stage": "prepared-not-published",
+  "id": "deficit-de-agua-livre",
+  "repository": "Elucenia/tool-deficit-de-agua-livre",
+  "build": {
+    "id": "6QpMzbnUBE2fep9nyJzTM",
+    "directory": ".next-private-final36",
+    "receiptSha256": "05823c22753741cd9947b8a5edad0c3f232f5cc4e935d1015837524ac6c34d0b"
+  },
+  "baseline": {
+    "parentCommitSha": "027cbbd9640391265a6e13462bc6f4f45e896a3c",
+    "baseTreeSha": "cb8294fdb5d766e43bc3d7c4238a3deef1608c5a",
+    "indexBlobSha": "c38833115449af6f446af032ffa2d0137a812fef",
+    "protectedFiles": {
+      "LICENSE": {
+        "path": "LICENSE",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+        "size": 11358,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7"
+      },
+      "NOTICE": {
+        "path": "NOTICE",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "48ce17ea7103ef9226344f8ef429a4e43cdd9a20",
+        "size": 1639,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/48ce17ea7103ef9226344f8ef429a4e43cdd9a20"
+      },
+      "AUTHORSHIP.md": {
+        "path": "AUTHORSHIP.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "377b1d6980c8efc6092793692f20f4018a293d8b",
+        "size": 3303,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/377b1d6980c8efc6092793692f20f4018a293d8b"
+      },
+      "CITATION.cff": {
+        "path": "CITATION.cff",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "ed115961f6c103de0df6d285696099729d9ce225",
+        "size": 914,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/ed115961f6c103de0df6d285696099729d9ce225"
+      },
+      "SECURITY.md": {
+        "path": "SECURITY.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "44eafb996937916cbe53e24fa9c5208fe03d5767",
+        "size": 894,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/44eafb996937916cbe53e24fa9c5208fe03d5767"
+      },
+      "CONTRIBUTING.md": {
+        "path": "CONTRIBUTING.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "c3101ecb48d82f778a7ea9caa311e8fbce53d760",
+        "size": 1472,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/c3101ecb48d82f778a7ea9caa311e8fbce53d760"
+      },
+      ".github/workflows/ci.yml": {
+        "path": ".github/workflows/ci.yml",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "7d3f2f34aa2e948d30695d82d64361467d9e6485",
+        "size": 279,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/7d3f2f34aa2e948d30695d82d64361467d9e6485"
+      },
+      ".gitattributes": {
+        "path": ".gitattributes",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+        "size": 19,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/6313b56c57848efce05faa7aa7e901ccfc2886ea"
+      },
+      ".gitignore": {
+        "path": ".gitignore",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "e375bd25cf1a574310ac4c7af0299884556e81e1",
+        "size": 42,
+        "url": "https://api.github.com/repos/Elucenia/tool-deficit-de-agua-livre/git/blobs/e375bd25cf1a574310ac4c7af0299884556e81e1"
+      }
+    }
+  },
+  "methodSourceModules": [
+    "calculator.js",
+    "runtime/restored-methods.cjs",
+    "runtime/restoration-original-tools.json"
+  ],
+  "implementationBrowserSha256": "7072aef7a739edde2b922f9780a0c058a9cd5411ea31963c2789244f1689815c",
+  "localeDataSha256": "0e7c1543db95be33779094f3fc481c9b9836b0a8e53663a3fa3bb59fd2092060",
+  "originalStyleSha256": "8fd25e9dc1c0980e3b39b2375d36b96276eec3cbc24284cbc3cc01dc00a67a5c",
+  "originalIndexSha256": "2b44fb542c0fdfc2eee3b50f7ed11a1eefb9d9bc69dce51daafde1c601eacc71",
+  "example": {
+    "label": "Current source-owned complete UI/API fixture",
+    "input": {
+      "na": 155,
+      "peso": 70,
+      "grupo": "0.6",
+      "idade": 50
+    },
+    "expected": {
+      "raw": {
+        "fwd": 4.5,
+        "tbw": 42
+      },
+      "main": "4,50",
+      "tol": 1e-9
+    },
+    "obtained": {
+      "id": "deficit-de-agua-livre",
+      "main": [
+        "4,50",
+        "L"
+      ],
+      "label": "Déficit de água livre estimado",
+      "raw": {
+        "fwd": 4.500000000000003,
+        "tbw": 42
+      },
+      "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+      "clinicalValidation": "not-performed"
+    },
+    "scope": "Source-owned example Node/browser wiring parity; not a new clinical oracle"
+  },
+  "clinicalApproval": "not-performed",
+  "professionalLanguageApproval": "not-performed",
+  "sourceRightsApproval": "not-performed",
+  "documentationLocales": [
+    "pt-BR",
+    "en",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "ar",
+    "zh",
+    "ja",
+    "hi"
+  ],
+  "documentationTemplateSha256": "ae4c41b39ab92a14adbfab83b946751a75c8168b5927e1f808d1c629ec032ea4",
+  "appWrites": false,
+  "externalMutations": false
+}

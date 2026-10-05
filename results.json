@@ -1,0 +1,520 @@
+{
+  "at": "2026-10-05T15:24:36.047Z",
+  "id": "deficit-de-agua-livre",
+  "engine": {
+    "file": "apps/website/private/tool-code/deficit-de-agua-livre/calculator.js",
+    "bytes": 503,
+    "sha256": "7d045452c9585422ee72e743e104ce837c32438398c7bb6ebb4d550d41114b5b"
+  },
+  "sourceParity": "Node current source / per-tool browser VM outputs match",
+  "cases": [
+    {
+      "id": "deficit-de-agua-livre",
+      "index": 0,
+      "name": "Vetor sintético principal de referência",
+      "input": {
+        "na": 155,
+        "peso": 70,
+        "grupo": "0.6",
+        "idade": 50
+      },
+      "expected": {
+        "raw": {
+          "fwd": 4.5,
+          "tbw": 42
+        },
+        "main": "4,50",
+        "tol": 1e-9
+      },
+      "obtained": {
+        "id": "deficit-de-agua-livre",
+        "main": [
+          "4,50",
+          "L"
+        ],
+        "label": "Déficit de água livre estimado",
+        "raw": {
+          "fwd": 4.500000000000003,
+          "tbw": 42
+        },
+        "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "deficit-de-agua-livre",
+        "main": [
+          "4,50",
+          "L"
+        ],
+        "label": "Déficit de água livre estimado",
+        "raw": {
+          "fwd": 4.500000000000003,
+          "tbw": 42
+        },
+        "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.main",
+          "expected": "4,50",
+          "obtained": "4,50",
+          "scope": "Recorded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.fwd",
+          "expected": 4.5,
+          "obtained": 4.500000000000003,
+          "tolerance": 1e-9,
+          "difference": 2.6645352591003757e-15,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.tbw",
+          "expected": 42,
+          "obtained": 42,
+          "tolerance": 1e-9,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.fwd",
+          "expected": 4.500000000000003,
+          "obtained": 4.500000000000003,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.tbw",
+          "expected": 42,
+          "obtained": 42,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "4,50",
+          "obtained": "4,50",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "L",
+          "obtained": "L",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    },
+    {
+      "id": "deficit-de-agua-livre",
+      "index": 1,
+      "name": "Exemplo publicado: Na165/peso70/fração0,6",
+      "input": {
+        "na": 165,
+        "peso": 70,
+        "grupo": "0.6",
+        "idade": 50
+      },
+      "expected": {
+        "raw": {
+          "fwd": 7.5,
+          "tbw": 42
+        },
+        "main": "7,50",
+        "tol": 1e-9
+      },
+      "obtained": {
+        "id": "deficit-de-agua-livre",
+        "main": [
+          "7,50",
+          "L"
+        ],
+        "label": "Déficit de água livre estimado",
+        "raw": {
+          "fwd": 7.500000000000002,
+          "tbw": 42
+        },
+        "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "deficit-de-agua-livre",
+        "main": [
+          "7,50",
+          "L"
+        ],
+        "label": "Déficit de água livre estimado",
+        "raw": {
+          "fwd": 7.500000000000002,
+          "tbw": 42
+        },
+        "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.main",
+          "expected": "7,50",
+          "obtained": "7,50",
+          "scope": "Recorded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.fwd",
+          "expected": 7.5,
+          "obtained": 7.500000000000002,
+          "tolerance": 1e-9,
+          "difference": 1.7763568394002505e-15,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.tbw",
+          "expected": 42,
+          "obtained": 42,
+          "tolerance": 1e-9,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.fwd",
+          "expected": 7.500000000000002,
+          "obtained": 7.500000000000002,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.tbw",
+          "expected": 42,
+          "obtained": 42,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "7,50",
+          "obtained": "7,50",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "L",
+          "obtained": "L",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    },
+    {
+      "id": "deficit-de-agua-livre",
+      "index": 2,
+      "name": "Na140: déficit zero",
+      "input": {
+        "na": 140,
+        "peso": 70,
+        "grupo": "0.6",
+        "idade": 50
+      },
+      "expected": {
+        "raw": {
+          "fwd": 0,
+          "tbw": 42
+        },
+        "main": "0,00"
+      },
+      "obtained": {
+        "id": "deficit-de-agua-livre",
+        "main": [
+          "0,00",
+          "L"
+        ],
+        "label": "Déficit de água livre estimado",
+        "raw": {
+          "fwd": 0,
+          "tbw": 42
+        },
+        "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "deficit-de-agua-livre",
+        "main": [
+          "0,00",
+          "L"
+        ],
+        "label": "Déficit de água livre estimado",
+        "raw": {
+          "fwd": 0,
+          "tbw": 42
+        },
+        "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.main",
+          "expected": "0,00",
+          "obtained": "0,00",
+          "scope": "Recorded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.fwd",
+          "expected": 0,
+          "obtained": 0,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.tbw",
+          "expected": 42,
+          "obtained": 42,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.fwd",
+          "expected": 0,
+          "obtained": 0,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.tbw",
+          "expected": 42,
+          "obtained": 42,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "0,00",
+          "obtained": "0,00",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "L",
+          "obtained": "L",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    },
+    {
+      "id": "deficit-de-agua-livre",
+      "index": 3,
+      "name": "Fração0,45/peso60/Na154",
+      "input": {
+        "na": 154,
+        "peso": 60,
+        "grupo": "0.45",
+        "idade": 50
+      },
+      "expected": {
+        "raw": {
+          "fwd": 2.7,
+          "tbw": 27
+        },
+        "tol": 1e-9
+      },
+      "obtained": {
+        "id": "deficit-de-agua-livre",
+        "main": [
+          "2,70",
+          "L"
+        ],
+        "label": "Déficit de água livre estimado",
+        "raw": {
+          "fwd": 2.7000000000000024,
+          "tbw": 27
+        },
+        "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "deficit-de-agua-livre",
+        "main": [
+          "2,70",
+          "L"
+        ],
+        "label": "Déficit de água livre estimado",
+        "raw": {
+          "fwd": 2.7000000000000024,
+          "tbw": 27
+        },
+        "methodVersion": "Adrogué–Madias 2000; estimativa estática em adultos",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.raw.fwd",
+          "expected": 2.7,
+          "obtained": 2.7000000000000024,
+          "tolerance": 1e-9,
+          "difference": 2.220446049250313e-15,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.tbw",
+          "expected": 27,
+          "obtained": 27,
+          "tolerance": 1e-9,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.fwd",
+          "expected": 2.7000000000000024,
+          "obtained": 2.7000000000000024,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.tbw",
+          "expected": 27,
+          "obtained": 27,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "2,70",
+          "obtained": "2,70",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "L",
+          "obtained": "L",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    }
+  ],
+  "summary": {
+    "cases": 4,
+    "passed": 4,
+    "failed": 0,
+    "checks": 39
+  },
+  "newIndependentOracle": false,
+  "clinicalApproval": false,
+  "professionalLanguageApproval": false
+}
